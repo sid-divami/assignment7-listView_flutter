@@ -34,11 +34,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: Column(children: <Widget>[
-
         const CategorySelector(),
         Expanded(
             child: Container(
           decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30), topRight: Radius.circular(30))),
           child: Column(children: <Widget>[
