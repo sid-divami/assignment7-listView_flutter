@@ -25,6 +25,8 @@ class _CategorySelectorState extends State<CategorySelector> {
                 setState(() {
                   selectedIndex = index;
                 });
+                Navigator.pushNamed(context, '/details',
+                    arguments: categories[index]);
               },
               child: Padding(
                 padding:

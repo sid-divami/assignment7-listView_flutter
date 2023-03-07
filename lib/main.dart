@@ -12,6 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/details': (context) => DetailsPage(),
+      },
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -19,6 +24,27 @@ class MyApp extends StatelessWidget {
           colorScheme:
               ColorScheme.fromSwatch().copyWith(secondary: Color(0xffFEF9EB))),
       home: const HomeScreen(),
+    );
+  }
+}
+
+class DetailsPage extends StatelessWidget {
+  late final String item;
+
+  @override
+  Widget build(BuildContext context) {
+    item = ModalRoute.of(context)?.settings.arguments as String;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Details'),
+      ),
+      body: Center(
+        child: Text(
+          item,
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+      ),
     );
   }
 }
